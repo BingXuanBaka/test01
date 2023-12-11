@@ -7,10 +7,11 @@ import { IconButton } from "./IconButton";
 export function Pager(props: {
   currentPage: number;
   pageCount: number;
+  className?: string;
   onPageChange: (page: number) => void;
 }) {
   return (
-    <div className="flex flex-row gap-4">
+    <div className={`flex flex-row gap-4 ${props.className}`}>
       <IconButton
         onClick={() => props.onPageChange(props.currentPage - 1)}
         disabled={props.currentPage <= 0}

@@ -1,10 +1,14 @@
 import moment from "moment";
 import { List } from "./components/List";
+import { Pager } from "./components/Pager";
+import { useState } from "react";
 
 function App() {
   const tags = new Map<string, string[]>();
   tags.set("type", ["action", "adventure"]);
   tags.set("species", ["tiger", "wolf"]);
+
+  const [currentPage, setCurrentPage] = useState(0)
 
   return (
     <>
@@ -102,6 +106,8 @@ function App() {
           },
         ]}
       />
+
+      <Pager className="p-4 mx-auto w-min" currentPage={currentPage} pageCount={17} onPageChange={setCurrentPage} />
     </>
   );
 }
